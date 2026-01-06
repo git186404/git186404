@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>git186404 — Personal Homepage</title>
+  <meta name="description" content="git186404 — Senior Software Engineer · AI Researcher · Open Source Maintainer" />
+  <meta name="author" content="git186404" />
+
+  <!-- Minimal reset and elegant style -->
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --muted:#9aa4b2;
+      --accent:#6ee7b7;
+      --glass: rgba(255,255,255,0.04);
+      --glass-2: rgba(255,255,255,0.02);
+      --radius:14px;
+      --maxw:1100px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Segoe UI Mono", monospace;
+      --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      background:
+        radial-gradient(1200px 600px at 10% 10%, rgba(110,231,183,0.06), transparent 8%),
+        radial-gradient(900px 400px at 90% 90%, rgba(99,102,241,0.04), transparent 6%),
+        var(--bg);
+      color:#e6eef6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:40px 20px;
+      display:flex;
+      justify-content:center;
+      align-items:flex-start;
+    }
+
+    .container{
+      width:100%;
+      max-width:var(--maxw);
+      display:grid;
+      grid-template-columns: 1fr 360px;
+      gap:28px;
+      align-items:start;
+    }
+
+    /* Left main card */
+    .main{
+      background:linear-gradient(180deg,var(--card), rgba(11,18,32,0.9));
+      border-radius:var(--radius);
+      padding:28px;
+      box-shadow: 0 10px 30px rgba(2,6,23,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.03);
+    }
+
+    header.hero{
+      display:flex;
+      gap:18px;
+      align-items:center;
+    }
+    .avatar{
+      width:96px;
+      height:96px;
+      border-radius:18px;
+      background:linear-gradient(135deg,#1f2937,#111827);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-family:var(--mono);
+      color:var(--accent);
+      font-weight:700;
+      font-size:20px;
+      flex-shrink:0;
+      box-shadow: 0 6px 18px rgba(2,6,23,0.6);
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .hero h1{
+      margin:0;
+      font-size:20px;
+      letter-spacing:0.2px;
+    }
+    .hero p{
+      margin:6px 0 0 0;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .badges{margin-top:14px; display:flex; gap:8px; flex-wrap:wrap}
+    .badge{
+      background:var(--glass);
+      color:var(--accent);
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:13px;
+      border:1px solid rgba(110,231,183,0.06);
+    }
+
+    section.about{
+      margin-top:22px;
+      line-height:1.7;
+      color:#d7e6f2;
+      font-size:15px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:12px;
+      margin-top:18px;
+    }
+
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      padding:14px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,0.02);
+    }
+    .card h3{margin:0 0 8px 0; font-size:14px}
+    .card p{margin:0; color:var(--muted); font-size:13px}
+
+    /* Projects list */
+    .projects{margin-top:18px; display:flex; flex-direction:column; gap:12px}
+    .project{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      align-items:center;
+      padding:12px;
+      border-radius:10px;
+      background:var(--glass-2);
+      border:1px solid rgba(255,255,255,0.02);
+    }
+    .project .meta{flex:1}
+    .project h4{margin:0; font-size:15px}
+    .project p{margin:6px 0 0 0; color:var(--muted); font-size:13px}
+    .project a{
+      color:var(--accent);
+      text-decoration:none;
+      font-weight:600;
+      font-size:13px;
+      margin-left:12px;
+    }
+
+    /* Right column */
+    aside.side{
+      position:sticky;
+      top:40px;
+      height:fit-content;
+    }
+    .profile-card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      padding:18px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,0.02);
+    }
+    .profile-card h3{margin:0 0 6px 0}
+    .profile-card p{margin:0; color:var(--muted); font-size:13px}
+
+    .skills{display:flex; flex-direction:column; gap:8px; margin-top:12px}
+    .skill{display:flex; justify-content:space-between; gap:12px; align-items:center}
+    .skill .bar{
+      height:8px;
+      background:rgba(255,255,255,0.03);
+      border-radius:999px;
+      overflow:hidden;
+      flex:1;
+      margin-left:10px;
+    }
+    .skill .bar > i{
+      display:block;
+      height:100%;
+      background:linear-gradient(90deg,var(--accent), #60a5fa);
+      width:60%;
+    }
+
+    .stats{display:flex; gap:10px; margin-top:14px}
+    .stat{flex:1; background:var(--glass-2); padding:12px; border-radius:10px; text-align:center}
+    .stat strong{display:block; font-size:18px}
+    .contact{margin-top:14px; display:flex; flex-direction:column; gap:8px}
+    .contact a{
+      display:inline-block;
+      color:var(--accent);
+      text-decoration:none;
+      font-weight:600;
+      font-size:14px;
+    }
+
+    footer{margin-top:22px; color:var(--muted); font-size:13px; text-align:center}
+
+    /* Responsive */
+    @media (max-width:980px){
+      .container{grid-template-columns:1fr; padding-bottom:40px}
+      aside.side{position:static}
+    }
+  </style>
+</head>
+<body>
+  <div class="container" role="main">
+    <main class="main" aria-label="Main profile">
+      <header class="hero">
+        <div class="avatar" aria-hidden="true">G186</div>
+        <div>
+          <h1>git186404</h1>
+          <p>Senior Software Engineer · AI Researcher · Open Source Maintainer</p>
+          <div class="badges" aria-hidden="true">
+            <span class="badge">Distributed Systems</span>
+            <span class="badge">ML Engineering</span>
+            <span class="badge">Kubernetes</span>
+          </div>
+        </div>
+      </header>
+
+      <section class="about" aria-label="About">
+        <p>
+          我专注于构建可扩展的分布式系统、机器学习平台与开发者工具。热衷于把复杂问题工程化、把研究成果产品化，并在开源社区推动高质量协作。以下为精选项目与技术栈展示，所有链接均指向我的 GitHub 主页或对应仓库。
+        </p>
+
+        <div class="grid" aria-hidden="false">
+          <div class="card">
+            <h3>领域专长</h3>
+            <p>分布式系统; 深度学习工程; 后端架构; DevOps 自动化</p>
+          </div>
+          <div class="card">
+            <h3>技术栈</h3>
+            <p>Go; Python; Rust; Kubernetes; Docker; TensorFlow; PyTorch</p>
+          </div>
+        </div>
+
+        <div class="projects" aria-label="Projects">
+          <div class="project">
+            <div class="meta">
+              <h4>PlatformX</h4>
+              <p>企业级机器学习平台，支持训练、推理与自动化部署</p>
+            </div>
+            <div>
+              <a href="https://github.com/git186404/platformx" target="_blank" rel="noopener">仓库</a>
+            </div>
+          </div>
+
+          <div class="project">
+            <div class="meta">
+              <h4>EdgeMesh</h4>
+              <p>高性能边缘计算网关，低延迟路由与动态负载均衡</p>
+            </div>
+            <div>
+              <a href="https://github.com/git186404/edgemesh" target="_blank" rel="noopener">仓库</a>
+            </div>
+          </div>
+
+          <div class="project">
+            <div class="meta">
+              <h4>DevFlow</h4>
+              <p>CI/CD 与开发者体验工具链，提升交付效率与可观测性</p>
+            </div>
+            <div>
+              <a href="https://github.com/git186404/devflow" target="_blank" rel="noopener">仓库</a>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:18px" aria-hidden="true">
+          <pre style="background:rgba(0,0,0,0.25); padding:10px; border-radius:8px; overflow:auto; font-family:var(--mono); font-size:13px; color:var(--muted)">
+# 克隆示例项目
+git clone https://github.com/git186404/platformx.git
+cd platformx
+docker-compose up -d
+make dev
+          </pre>
+        </div>
+      </section>
+
+      <footer>
+        © <span id="year"></span> git186404 · 个人主页模板 · MIT License
+      </footer>
+    </main>
+
+    <aside class="side" aria-label="Sidebar">
+      <div class="profile-card">
+        <h3>联系与社交</h3>
+        <p>欢迎通过 GitHub 提交 Issue 或 PR，或通过邮箱联系讨论合作。</p>
+
+        <div class="contact">
+          <a href="https://github.com/git186404" target="_blank" rel="noopener">GitHub /git186404</a>
+          <a href="mailto:hello@yourdomain.com">hello@yourdomain.com</a>
+          <a href="https://www.linkedin.com/in/yourprofile" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+
+        <div class="skills" style="margin-top:12px">
+          <div class="skill">
+            <div style="font-size:13px; color:var(--muted)">后端</div>
+            <div class="bar" aria-hidden="true"><i style="width:86%"></i></div>
+          </div>
+          <div class="skill">
+            <div style="font-size:13px; color:var(--muted)">机器学习</div>
+            <div class="bar" aria-hidden="true"><i style="width:78%"></i></div>
+          </div>
+          <div class="skill">
+            <div style="font-size:13px; color:var(--muted)">云与容器</div>
+            <div class="bar" aria-hidden="true"><i style="width:82%"></i></div>
+          </div>
+        </div>
+
+        <div class="stats" role="status" aria-live="polite">
+          <div class="stat">
+            <strong id="commits">12,480+</strong>
+            <span style="color:var(--muted); font-size:12px">贡献次数</span>
+          </div>
+          <div class="stat">
+            <strong id="repos">28</strong>
+            <span style="color:var(--muted); font-size:12px">公开仓库</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="height:18px"></div>
+
+      <div class="profile-card" style="margin-top:12px">
+        <h3>快速链接</h3>
+        <p style="margin-top:8px; color:var(--muted); font-size:13px">
+          仓库、演示、技术博客与演讲资料均托管在 GitHub。
+        </p>
+        <div style="display:flex; gap:8px; margin-top:12px; flex-wrap:wrap">
+          <a class="badge" href="https://github.com/git186404" target="_blank" rel="noopener">GitHub</a>
+          <a class="badge" href="https://github.com/git186404?tab=repositories" target="_blank" rel="noopener">Repositories</a>
+          <a class="badge" href="https://github.com/git186404?tab=stars" target="_blank" rel="noopener">Stars</a>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Minimal JS for small interactions -->
+  <script>
+    // 填充当前年份
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // 示例：轻量动画统计数字（仅示例占位）
+    function animateCount(id, target, duration){
+      const el = document.getElementById(id);
+      if(!el) return;
+      const start = 0;
+      const range = target - start;
+      const stepTime = Math.max(Math.floor(duration / range), 10);
+      let current = start;
+      const timer = setInterval(() => {
+        current += 1;
+        el.textContent = current.toLocaleString();
+        if(current >= target) clearInterval(timer);
+      }, stepTime);
+    }
+
+    // 仅在页面首次加载时运行（示例数据）
+    window.addEventListener('load', () => {
+      // 这些数字为示例占位，按需替换或移除动画
+      animateCount('commits', 12480, 900);
+      animateCount('repos', 28, 600);
+    });
+  </script>
+</body>
+</html>
