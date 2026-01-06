@@ -1,77 +1,90 @@
-# 👋 Hi, I'm git186404
+<h1 align="center">git186404</h1>
 
-Independent Developer · Systems Engineer · Open Source Enthusiast
+<p align="center">
+  <img src="https://img.shields.io/badge/System-Architecture-0A0A0A?style=flat-square&logo=databricks&logoColor=white" />
+  <img src="https://img.shields.io/badge/Platform-Engineering-0A0A0A?style=flat-square&logo=kubernetes&logoColor=white" />
+  <img src="https://img.shields.io/badge/Focus-Long--Term%20Systems-0A0A0A?style=flat-square&logo=vercel&logoColor=white" />
+</p>
 
----
-
-## About Me
-
-I am a developer with a strong focus on infrastructure, system design, and web-based tooling.  
-My work spans across backend services, lightweight frontends, and cloud-native deployments, with an emphasis on **stability, simplicity, and long-term maintainability**.
-
-I enjoy building practical tools, optimizing workflows, and exploring how modern platforms can be combined to deliver clean and efficient solutions.
-
----
-
-## Technical Focus
-
-- **Backend & Services**
-  - RESTful APIs
-  - Service orchestration
-  - Automation scripts and task scheduling
-
-- **Web & Frontend**
-  - Pure HTML / CSS based static sites
-  - Lightweight UI without heavy frameworks
-  - Performance-oriented design
-
-- **Infrastructure**
-  - Linux-based environments
-  - Containerized services (Docker)
-  - Reverse proxy & traffic routing
-  - Cloudflare / edge deployment scenarios
-
-- **Tooling & Workflow**
-  - Git-based workflows
-  - CI-friendly project structures
-  - Minimal but effective documentation
+<p align="center">
+  <img src="https://img.shields.io/badge/Open%20Source-Low%20Noise-111111?style=flat-square&logo=github&logoColor=white" />
+  <img src="https://img.shields.io/badge/Design-Constraint--Driven-111111?style=flat-square&logo=buffer&logoColor=white" />
+</p>
 
 ---
 
-## Selected Interests
+## Overview
 
-- System reliability and fault tolerance  
-- Developer experience (DX) optimization  
-- Static-site driven projects  
-- Low-cost, high-availability deployments  
-- Clean UI with a technical aesthetic  
+I work primarily on **system-level design and platform architecture**, focusing on how software behaves over time rather than how it looks on day one.
+
+My interests revolve around **structural decisions**, infrastructure boundaries, and the trade-offs that appear when systems scale, age, or change ownership.
+
+I prefer **simple primitives**, explicit constraints, and designs that remain understandable long after the original context is gone.
 
 ---
 
-## Open Source Philosophy
+## Core Domains
 
-I believe open source should be:
+### 🧱 Architecture & Systems
+- Service boundary definition  
+- Failure isolation & recovery models  
+- Interface longevity and evolution  
 
-- **Readable** – clear structure and naming
-- **Reusable** – easy to adapt to real-world use
-- **Honest** – no unnecessary complexity
+### ☁️ Platform & Infrastructure
+- Cloud-native & edge-first deployment  
+- Traffic routing and control planes  
+- Cost / complexity balance  
 
-Some repositories are experiments, others are utilities refined over time.  
-Each project reflects a specific problem and its most direct solution.
+### ⚙️ Engineering Practice
+- Decision records & design reviews  
+- Operational risk reduction  
+- Sustainable system ownership  
+
+---
+
+## Tooling & Environment
+
+<p align="left">
+  <img src="https://img.shields.io/badge/Linux-0A0A0A?style=flat-square&logo=linux&logoColor=white" />
+  <img src="https://img.shields.io/badge/Docker-0A0A0A?style=flat-square&logo=docker&logoColor=white" />
+  <img src="https://img.shields.io/badge/Cloudflare-0A0A0A?style=flat-square&logo=cloudflare&logoColor=white" />
+  <img src="https://img.shields.io/badge/Git-0A0A0A?style=flat-square&logo=git&logoColor=white" />
+  <img src="https://img.shields.io/badge/CI/CD-0A0A0A?style=flat-square&logo=githubactions&logoColor=white" />
+</p>
+
+---
+
+## Open Source Approach
+
+Open source is treated here as:
+
+- A medium for **clear thinking**
+- A place for **reference implementations**
+- A way to externalize architectural ideas
+
+Some repositories are intentionally minimal.  
+Others exist to document decisions rather than provide features.
 
 ---
 
 ## Current Direction
 
-- Exploring edge-first deployment models  
-- Refining small but complete web projects  
-- Improving documentation and usability of existing tools  
+<p align="left">
+  <img src="https://img.shields.io/badge/Edge%20Computing-Research-111111?style=flat-square&logo=fastly&logoColor=white" />
+  <img src="https://img.shields.io/badge/System%20Simplification-In%20Progress-111111?style=flat-square&logo=abstract&logoColor=white" />
+  <img src="https://img.shields.io/badge/Operational%20Surface-Reduction-111111?style=flat-square&logo=linear&logoColor=white" />
+</p>
 
 ---
 
-## Contact & Presence
+## Presence
 
-- GitHub: https://github.com/git186404
+<p align="left">
+  <a href="https://github.com/git186404">
+    <img src="https://img.shields.io/badge/GitHub-git186404-0A0A0A?style=flat-square&logo=github&logoColor=white" />
+  </a>
+</p>
 
-> “Build things that work. Keep them simple. Let the code speak.”
+---
 
+> Architecture is the part of the system that is hardest to change — and easiest to underestimate.
