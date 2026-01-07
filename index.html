@@ -1,392 +1,607 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>git186404 — Senior Software Engineer & AI Researcher</title>
-  <meta name="description" content="Professional portfolio of git186404 — distributed systems, ML platforms, and open source engineering." />
-  <meta name="author" content="git186404" />
-  <meta property="og:title" content="git186404 — Senior Software Engineer & AI Researcher" />
-  <meta property="og:description" content="Portfolio showcasing production-grade systems, ML platforms, and open-source projects." />
-  <meta property="og:url" content="https://github.com/git186404" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>G</text></svg>">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="git186404 - Senior Software Architect specializing in distributed systems, AI/ML, and scalable architecture." />
+    <meta name="keywords" content="Software Architect, AI/ML, Distributed Systems, Cloud Architecture, Full-Stack Developer" />
+    <meta name="author" content="git186404" />
+    <meta property="og:title" content="git186404 | Architect of Tomorrow" />
+    <meta property="og:description" content="Building the future, one commit at a time." />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>git186404 | Architect of Tomorrow</title>
+  </head>
+  <body>
+    <canvas id="aurora"></canvas>
 
-  <style>
-    :root{
-      --bg:#071025;
-      --card:#071827;
-      --muted:#9fb0c8;
-      --accent:#7ee7c7;
-      --accent-2:#6ea8ff;
-      --glass: rgba(255,255,255,0.03);
-      --radius:16px;
-      --maxw:1200px;
-      --sans: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Segoe UI Mono", monospace;
-    }
+    <nav class="glass-nav">
+      <div class="nav-container">
+        <a href="#" class="logo">
+          <span class="logo-icon">⟩</span>
+          <span class="logo-text">git186404</span>
+          <span class="logo-cursor">_</span>
+        </a>
+        <button class="mobile-menu-btn" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="nav-links">
+          <li>
+            <a href="#home"><span class="nav-number">01.</span> Home</a>
+          </li>
+          <li>
+            <a href="#expertise"
+              ><span class="nav-number">02.</span> Expertise</a
+            >
+          </li>
+          <li>
+            <a href="#projects"><span class="nav-number">03.</span> Projects</a>
+          </li>
+          <li>
+            <a href="#achievements"
+              ><span class="nav-number">04.</span> Achievements</a
+            >
+          </li>
+          <li>
+            <a href="#contact"><span class="nav-number">05.</span> Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
 
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family:var(--sans);
-      background:
-        radial-gradient(800px 400px at 10% 10%, rgba(126,231,199,0.04), transparent 8%),
-        linear-gradient(180deg, #041022 0%, #071025 100%);
-      color:#eaf3fb;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      padding:48px 20px;
-      display:flex;
-      justify-content:center;
-    }
-
-    .wrap{
-      width:100%;
-      max-width:var(--maxw);
-      display:grid;
-      grid-template-columns: 1fr 360px;
-      gap:28px;
-      align-items:start;
-    }
-
-    /* Main card */
-    .panel{
-      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-radius:var(--radius);
-      padding:28px;
-      border:1px solid rgba(255,255,255,0.03);
-      box-shadow: 0 12px 40px rgba(2,6,23,0.6);
-    }
-
-    header.hero{
-      display:flex;
-      gap:18px;
-      align-items:center;
-    }
-
-    .avatar{
-      width:110px;
-      height:110px;
-      border-radius:18px;
-      background:linear-gradient(135deg,#0b1220,#0f1724);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-family:var(--mono);
-      color:var(--accent);
-      font-weight:800;
-      font-size:28px;
-      flex-shrink:0;
-      border:1px solid rgba(255,255,255,0.04);
-    }
-
-    .hero h1{
-      margin:0;
-      font-size:24px;
-      letter-spacing:0.2px;
-    }
-    .hero p{margin:6px 0 0 0; color:var(--muted); font-size:14px}
-
-    .hero-meta{margin-top:12px; display:flex; gap:10px; flex-wrap:wrap}
-    .pill{
-      background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      color:var(--accent);
-      padding:8px 12px;
-      border-radius:999px;
-      font-size:13px;
-      border:1px solid rgba(126,231,199,0.06);
-    }
-
-    .lead{
-      margin-top:20px;
-      color:#dbeaf6;
-      line-height:1.7;
-      font-size:15px;
-    }
-
-    .cta{
-      margin-top:18px;
-      display:flex;
-      gap:12px;
-      align-items:center;
-    }
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:10px 14px;
-      border-radius:12px;
-      text-decoration:none;
-      font-weight:600;
-      font-size:14px;
-      border:1px solid rgba(255,255,255,0.03);
-    }
-    .btn-primary{
-      background:linear-gradient(90deg,var(--accent),var(--accent-2));
-      color:#04202a;
-      box-shadow: 0 8px 24px rgba(110,231,183,0.08);
-    }
-    .btn-ghost{
-      color:var(--accent);
-      background:transparent;
-      border:1px solid rgba(126,231,199,0.06);
-    }
-
-    /* Projects */
-    .projects{
-      margin-top:22px;
-      display:grid;
-      gap:12px;
-    }
-    .project{
-      display:flex;
-      gap:12px;
-      align-items:center;
-      padding:14px;
-      border-radius:12px;
-      background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
-      border:1px solid rgba(255,255,255,0.02);
-    }
-    .project .left{flex:1}
-    .project h3{margin:0; font-size:16px}
-    .project p{margin:6px 0 0 0; color:var(--muted); font-size:13px}
-    .project .links{display:flex; gap:8px; align-items:center}
-
-    /* Experience timeline */
-    .timeline{margin-top:22px; display:flex; flex-direction:column; gap:12px}
-    .timeline-item{
-      display:flex;
-      gap:12px;
-      align-items:flex-start;
-      padding:12px;
-      border-radius:10px;
-      background:rgba(255,255,255,0.01);
-      border:1px solid rgba(255,255,255,0.02);
-    }
-    .timeline-item .date{width:110px; color:var(--muted); font-size:13px}
-    .timeline-item .body h4{margin:0; font-size:15px}
-    .timeline-item .body p{margin:6px 0 0 0; color:var(--muted); font-size:13px}
-
-    /* Right column */
-    aside.side{
-      position:sticky;
-      top:48px;
-      height:fit-content;
-    }
-    .card{
-      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      padding:18px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,0.02);
-      margin-bottom:16px;
-    }
-    .card h3{margin:0 0 8px 0}
-    .card p{margin:0; color:var(--muted); font-size:13px}
-
-    .stats{display:flex; gap:10px; margin-top:12px}
-    .stat{flex:1; background:rgba(255,255,255,0.01); padding:12px; border-radius:10px; text-align:center}
-    .stat strong{display:block; font-size:18px}
-
-    .skill-list{display:flex; flex-direction:column; gap:8px; margin-top:12px}
-    .skill{
-      display:flex;
-      justify-content:space-between;
-      gap:12px;
-      align-items:center;
-      font-size:13px;
-      color:var(--muted);
-    }
-    .skill .bar{
-      height:8px;
-      background:rgba(255,255,255,0.03);
-      border-radius:999px;
-      overflow:hidden;
-      flex:1;
-      margin-left:10px;
-    }
-    .skill .bar > i{display:block; height:100%; background:linear-gradient(90deg,var(--accent),var(--accent-2)); width:60%}
-
-    .socials{display:flex; gap:8px; margin-top:12px; flex-wrap:wrap}
-    .chip{padding:8px 10px; border-radius:999px; background:rgba(255,255,255,0.02); color:var(--accent); font-weight:600; font-size:13px; text-decoration:none}
-
-    footer{margin-top:18px; color:var(--muted); font-size:13px; text-align:center}
-
-    /* small screens */
-    @media (max-width:980px){
-      .wrap{grid-template-columns:1fr}
-      aside.side{position:static}
-    }
-  </style>
-</head>
-<body>
-  <div class="wrap" role="main">
-    <main class="panel" aria-label="Profile">
-      <header class="hero">
-        <div class="avatar" aria-hidden="true">G186</div>
-        <div>
-          <h1>git186404</h1>
-          <p>Senior Software Engineer · Machine Learning Platform Architect · Open Source Maintainer</p>
-
-          <div class="hero-meta" aria-hidden="true">
-            <span class="pill">Distributed Systems</span>
-            <span class="pill">ML Infrastructure</span>
-            <span class="pill">Cloud Native</span>
-            <span class="pill">Performance Engineering</span>
+    <section class="hero" id="home">
+      <div class="hero-grid">
+        <div class="grid-line"></div>
+        <div class="grid-line"></div>
+        <div class="grid-line"></div>
+        <div class="grid-line"></div>
+        <div class="grid-line"></div>
+      </div>
+      <div class="hero-content">
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-dot"></span>
+            <span class="code-dot"></span>
+            <span class="code-dot"></span>
           </div>
-
-          <div class="lead">
-            I design and ship production-grade systems that power large-scale machine learning and real-time services. My work spans platform architecture, model lifecycle automation, and developer experience — with a focus on reliability, observability, and measurable business impact.
-          </div>
-
-          <div class="cta">
-            <a class="btn btn-primary" href="https://github.com/git186404" target="_blank" rel="noopener">View GitHub Profile</a>
-            <a class="btn btn-ghost" href="mailto:hello@yourdomain.com">Contact</a>
-          </div>
-        </div>
-      </header>
-
-      <section class="projects" aria-label="Featured Projects">
-        <div class="project">
-          <div class="left">
-            <h3>PlatformX — Enterprise ML Platform</h3>
-            <p>End-to-end platform for model training, validation, deployment and governance. Multi-tenant, autoscaling compute, and integrated observability.</p>
-          </div>
-          <div class="links">
-            <a class="pill" href="https://github.com/git186404/platformx" target="_blank" rel="noopener">Repository</a>
+          <div class="code-body">
+            <p>
+              <span class="code-keyword">const</span>
+              <span class="code-variable">developer</span> = {
+            </p>
+            <p>
+              &nbsp;&nbsp;<span class="code-property">name</span>:
+              <span class="code-string">"git186404"</span>,
+            </p>
+            <p>
+              &nbsp;&nbsp;<span class="code-property">title</span>:
+              <span class="code-string">"Senior Software Architect"</span>,
+            </p>
+            <p>
+              &nbsp;&nbsp;<span class="code-property">status</span>:
+              <span class="code-string">"available for hire"</span>,
+            </p>
+            <p>
+              &nbsp;&nbsp;<span class="code-property">skills</span>: [<span
+                class="code-string"
+                >"AI/ML"</span
+              >, <span class="code-string">"Cloud"</span>,
+              <span class="code-string">"Systems"</span>]
+            </p>
+            <p>};</p>
           </div>
         </div>
 
-        <div class="project">
-          <div class="left">
-            <h3>EdgeMesh — High-performance Edge Gateway</h3>
-            <p>Lightweight, low-latency routing and dynamic load balancing for edge deployments with zero-downtime upgrades.</p>
+        <div class="hero-info">
+          <p class="hero-greeting">Hello, world! 👋</p>
+          <h1 class="hero-title">
+            <span class="hero-name">git186404</span>
+            <span class="hero-tagline">Architect of Tomorrow</span>
+          </h1>
+          <p class="hero-description">
+            Building the future, one commit at a time. Specializing in
+            distributed systems, artificial intelligence, and scalable
+            architecture that powers millions.
+          </p>
+
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-number" data-target="150">0</span>
+              <span class="stat-label">Projects</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" data-target="25000">0</span>
+              <span class="stat-label">Stars</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" data-target="12000">0</span>
+              <span class="stat-label">Followers</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" data-target="850">0</span>
+              <span class="stat-label">Forks</span>
+            </div>
           </div>
-          <div class="links">
-            <a class="pill" href="https://github.com/git186404/edgemesh" target="_blank" rel="noopener">Repository</a>
+
+          <div class="hero-cta">
+            <a href="#projects" class="btn btn-primary">
+              <span>Explore Work</span>
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a
+              href="https://github.com/git186404"
+              target="_blank"
+              class="btn btn-secondary"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                />
+              </svg>
+            </a>
           </div>
         </div>
 
-        <div class="project">
-          <div class="left">
-            <h3>DevFlow — Developer CI/CD Experience</h3>
-            <p>Pipeline-as-code, secure delivery, and observability tooling that reduces lead time and improves deployment confidence.</p>
+        <div class="scroll-hint">
+          <div class="scroll-line"></div>
+          <span>Scroll to explore</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section expertise" id="expertise">
+      <div class="section-header">
+        <span class="section-number">02.</span>
+        <h2 class="section-title">Technical Mastery</h2>
+        <p class="section-subtitle">Domains of expertise</p>
+      </div>
+      <div class="expertise-grid">
+        <div class="expertise-card">
+          <div class="expertise-icon">
+            <svg
+              width="48"
+              height="48"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <path d="M12 2L2 7l10 5 10-5-10-5z" />
+              <path d="M2 17l10 5 10-5" />
+              <path d="M2 12l10 5 10-5" />
+            </svg>
           </div>
-          <div class="links">
-            <a class="pill" href="https://github.com/git186404/devflow" target="_blank" rel="noopener">Repository</a>
+          <h3>Distributed Systems</h3>
+          <p>
+            Building fault-tolerant, scalable architectures that handle millions
+            of requests per second
+          </p>
+          <div class="expertise-tags">
+            <span>Kubernetes</span>
+            <span>gRPC</span>
+            <span>Kafka</span>
+            <span>Redis</span>
           </div>
         </div>
-      </section>
 
-      <section class="timeline" aria-label="Experience">
-        <div class="timeline-item">
-          <div class="date">2021 — Present</div>
-          <div class="body">
-            <h4>Principal Engineer, Platform</h4>
-            <p>Led design and rollout of a multi-tenant ML platform serving production models at scale; reduced model deployment time by 70% and improved SLO adherence.</p>
+        <div class="expertise-card">
+          <div class="expertise-icon">
+            <svg
+              width="48"
+              height="48"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 6v6l4 2" />
+            </svg>
+          </div>
+          <h3>AI & Neural Networks</h3>
+          <p>
+            Developing next-generation machine learning models and inference
+            engines
+          </p>
+          <div class="expertise-tags">
+            <span>PyTorch</span>
+            <span>TensorFlow</span>
+            <span>LangChain</span>
+            <span>CUDA</span>
           </div>
         </div>
 
-        <div class="timeline-item">
-          <div class="date">2018 — 2021</div>
-          <div class="body">
-            <h4>Senior Backend Engineer</h4>
-            <p>Architected a high-throughput microservices gateway and implemented observability and chaos-testing practices across services.</p>
+        <div class="expertise-card">
+          <div class="expertise-icon">
+            <svg
+              width="48"
+              height="48"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" />
+            </svg>
+          </div>
+          <h3>Cloud Architecture</h3>
+          <p>
+            Designing and implementing enterprise-grade cloud infrastructure
+          </p>
+          <div class="expertise-tags">
+            <span>AWS</span>
+            <span>Terraform</span>
+            <span>Docker</span>
+            <span>ArgoCD</span>
           </div>
         </div>
-      </section>
 
-      <footer>
-        © <span id="year"></span> git186404 · Built for reliability and scale · MIT License
-      </footer>
-    </main>
-
-    <aside class="side" aria-label="Sidebar">
-      <div class="card" aria-hidden="false">
-        <h3>Contact</h3>
-        <p>Open to collaboration, consulting, and speaking engagements. For inquiries, use GitHub or email below.</p>
-
-        <div style="margin-top:12px">
-          <a class="chip" href="https://github.com/git186404" target="_blank" rel="noopener">GitHub</a>
-          <a class="chip" href="mailto:hello@yourdomain.com">Email</a>
-          <a class="chip" href="https://www.linkedin.com/in/yourprofile" target="_blank" rel="noopener">LinkedIn</a>
+        <div class="expertise-card">
+          <div class="expertise-icon">
+            <svg
+              width="48"
+              height="48"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+              <line x1="3" y1="9" x2="21" y2="9" />
+              <line x1="9" y1="21" x2="9" y2="9" />
+            </svg>
+          </div>
+          <h3>Full-Stack Mastery</h3>
+          <p>Crafting immersive digital experiences with modern frameworks</p>
+          <div class="expertise-tags">
+            <span>React</span>
+            <span>Next.js</span>
+            <span>TypeScript</span>
+            <span>Node.js</span>
+          </div>
         </div>
 
-        <div class="stats" aria-hidden="true">
-          <div class="stat">
-            <strong id="gh-stars">—</strong>
-            <span style="color:var(--muted); font-size:12px">Total Stars</span>
+        <div class="expertise-card">
+          <div class="expertise-icon">
+            <svg
+              width="48"
+              height="48"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+              <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+            </svg>
           </div>
-          <div class="stat">
-            <strong id="gh-repos">—</strong>
-            <span style="color:var(--muted); font-size:12px">Public Repos</span>
+          <h3>Security & Cryptography</h3>
+          <p>
+            Implementing bank-grade security protocols and zero-trust
+            architecture
+          </p>
+          <div class="expertise-tags">
+            <span>OAuth 2.0</span>
+            <span>Web3</span>
+            <span>JWT</span>
+            <span>Salt</span>
+          </div>
+        </div>
+
+        <div class="expertise-card">
+          <div class="expertise-icon">
+            <svg
+              width="48"
+              height="48"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <ellipse cx="12" cy="5" rx="9" ry="3" />
+              <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+              <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+            </svg>
+          </div>
+          <h3>Data Engineering</h3>
+          <p>Building real-time data pipelines and analytics platforms</p>
+          <div class="expertise-tags">
+            <span>Snowflake</span>
+            <span>Spark</span>
+            <span>dbt</span>
+            <span>Airflow</span>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="card">
-        <h3>Core Skills</h3>
-        <div class="skill-list">
-          <div class="skill"><span>Backend Engineering</span><div class="bar"><i style="width:90%"></i></div></div>
-          <div class="skill"><span>ML Infrastructure</span><div class="bar"><i style="width:82%"></i></div></div>
-          <div class="skill"><span>Cloud Native</span><div class="bar"><i style="width:86%"></i></div></div>
-          <div class="skill"><span>Observability</span><div class="bar"><i style="width:78%"></i></div></div>
+    <section class="section projects" id="projects">
+      <div class="section-header">
+        <span class="section-number">03.</span>
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-subtitle">Open source contributions</p>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card featured">
+          <div class="project-image">
+            <div class="project-overlay">
+              <div class="project-icon">🚀</div>
+            </div>
+          </div>
+          <div class="project-content">
+            <span class="project-category">AI Infrastructure</span>
+            <h3>NeuralFlow Engine</h3>
+            <p>
+              Next-generation AI inference engine achieving 10x performance
+              improvement over existing solutions
+            </p>
+            <div class="project-metrics">
+              <span
+                ><svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                  />
+                </svg>
+                4.2k</span
+              >
+              <span
+                ><svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M12 2c-5.524 0-10 4.476-10 10 0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.524-4.476-10-10-10z"
+                  />
+                </svg>
+                892</span
+              >
+              <span>🚀 Production Ready</span>
+            </div>
+            <div class="project-tech">
+              <span>Rust</span>
+              <span>CUDA</span>
+              <span>Python</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">
+            <div class="project-overlay">
+              <div class="project-icon">🌐</div>
+            </div>
+          </div>
+          <div class="project-content">
+            <span class="project-category">UI Framework</span>
+            <h3>QuantumUI</h3>
+            <p>
+              World's most advanced React component library with AI-powered
+              features
+            </p>
+            <div class="project-metrics">
+              <span>⭐ 3.1k</span>
+              <span>🔀 456</span>
+            </div>
+            <div class="project-tech">
+              <span>React</span>
+              <span>TypeScript</span>
+              <span>Tailwind</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">
+            <div class="project-overlay">
+              <div class="project-icon">☁️</div>
+            </div>
+          </div>
+          <div class="project-content">
+            <span class="project-category">Cloud Native</span>
+            <h3>KubeOrchestrator</h3>
+            <p>
+              Intelligent Kubernetes orchestration platform with auto-scaling
+              and predictive resource management
+            </p>
+            <div class="project-metrics">
+              <span>⭐ 2.4k</span>
+              <span>🔀 289</span>
+            </div>
+            <div class="project-tech">
+              <span>Go</span>
+              <span>Kubernetes</span>
+              <span>Prometheus</span>
+            </div>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="card">
-        <h3>Quick Links</h3>
-        <p style="color:var(--muted); margin-top:8px">Curated resources, talks, and demos.</p>
-        <div class="socials">
-          <a class="chip" href="https://github.com/git186404?tab=repositories" target="_blank" rel="noopener">Repositories</a>
-          <a class="chip" href="https://github.com/git186404?tab=stars" target="_blank" rel="noopener">Starred</a>
-          <a class="chip" href="https://github.com/git186404?tab=followers" target="_blank" rel="noopener">Followers</a>
+    <section class="section achievements" id="achievements">
+      <div class="section-header">
+        <span class="section-number">04.</span>
+        <h2 class="section-title">Achievements</h2>
+        <p class="section-subtitle">Recognition & Milestones</p>
+      </div>
+      <div class="achievements-grid">
+        <div class="achievement-card">
+          <div class="achievement-icon">🏆</div>
+          <div class="achievement-content">
+            <h3>GitHub Arctic Code Vault</h3>
+            <p>
+              Code archived in GitHub's permanent data archive for future
+              generations
+            </p>
+            <span class="achievement-year">2024</span>
+          </div>
+        </div>
+        <div class="achievement-card">
+          <div class="achievement-icon">⭐</div>
+          <div class="achievement-content">
+            <h3>Most Starred Project</h3>
+            <p>
+              Reached 4,000+ stars on a single open-source project in the AI
+              domain
+            </p>
+            <span class="achievement-year">2024</span>
+          </div>
+        </div>
+        <div class="achievement-card">
+          <div class="achievement-icon">🎤</div>
+          <div class="achievement-content">
+            <h3>Tech Conference Speaker</h3>
+            <p>
+              Delivered keynote at major tech conferences on AI and distributed
+              systems
+            </p>
+            <span class="achievement-year">2023</span>
+          </div>
+        </div>
+        <div class="achievement-card">
+          <div class="achievement-icon">📚</div>
+          <div class="achievement-content">
+            <h3>Technical Author</h3>
+            <p>
+              Published multiple articles on cloud architecture and machine
+              learning
+            </p>
+            <span class="achievement-year">2023</span>
+          </div>
         </div>
       </div>
-    </aside>
-  </div>
+      <div class="trophy-case">
+        <div class="trophy">
+          <span class="trophy-icon">🥇</span>
+          <span>Hackathon Winner</span>
+        </div>
+        <div class="trophy">
+          <span class="trophy-icon">🏅</span>
+          <span>Open Source Hero</span>
+        </div>
+        <div class="trophy">
+          <span class="trophy-icon">💎</span>
+          <span>Top Contributor</span>
+        </div>
+      </div>
+    </section>
 
-  <script>
-    // Fill year
-    document.getElementById('year').textContent = new Date().getFullYear();
+    <section class="section contact" id="contact">
+      <div class="section-header">
+        <span class="section-number">05.</span>
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="section-subtitle">Let's build something extraordinary</p>
+      </div>
+      <div class="contact-content">
+        <p>
+          I'm currently available for freelance work and full-time opportunities.
+          Whether you have a question or just want to say hi, I'll try my best to
+          get back to you!
+        </p>
+        <div class="hero-cta" style="justify-content: center">
+          <a href="mailto:contact@git186404.dev" class="btn btn-primary">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+              />
+              <polyline points="22,6 12,13 2,6" />
+            </svg>
+            <span>Say Hello</span>
+          </a>
+        </div>
+        <div class="social-links">
+          <a
+            href="https://github.com/git186404"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-link"
+            aria-label="GitHub"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+              />
+            </svg>
+          </a>
+          <a
+            href="https://linkedin.com/in/git186404"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-link"
+            aria-label="LinkedIn"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+              />
+            </svg>
+          </a>
+          <a
+            href="https://twitter.com/git186404"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-link"
+            aria-label="Twitter"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"
+              />
+            </svg>
+          </a>
+          <a
+            href="mailto:contact@git186404.dev"
+            class="social-link"
+            aria-label="Email"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path
+                d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+              />
+              <polyline points="22,6 12,13 2,6" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
 
-    // Lightweight GitHub public stats fetch (graceful fallback)
-    (async function fetchGitHubStats(){
-      const user = 'git186404';
-      try {
-        const res = await fetch(`https://api.github.com/users/${user}`);
-        if(!res.ok) throw new Error('GitHub API error');
-        const data = await res.json();
-        document.getElementById('gh-repos').textContent = (data.public_repos || 0).toLocaleString();
-        // For stars, fetch repos and sum stargazers_count (rate-limited for large accounts)
-        const reposRes = await fetch(`https://api.github.com/users/${user}/repos?per_page=100`);
-        if(reposRes.ok){
-          const repos = await reposRes.json();
-          const stars = repos.reduce((s, r) => s + (r.stargazers_count || 0), 0);
-          document.getElementById('gh-stars').textContent = stars.toLocaleString();
-        } else {
-          document.getElementById('gh-stars').textContent = '—';
-        }
-      } catch (e) {
-        document.getElementById('gh-repos').textContent = '—';
-        document.getElementById('gh-stars').textContent = '—';
-      }
-    })();
-
-    // Small accessibility enhancement: prefers-reduced-motion respect
-    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if(!prefersReduced){
-      // subtle entrance animation
-      document.querySelectorAll('.panel, .card').forEach((el, i) => {
-        el.style.opacity = 0;
-        el.style.transform = 'translateY(8px)';
-        setTimeout(() => {
-          el.style.transition = 'opacity 600ms ease, transform 600ms ease';
-          el.style.opacity = 1;
-          el.style.transform = 'translateY(0)';
-        }, 80 * i);
-      });
-    }
-  </script>
-</body>
+    <footer>
+      <p>&copy; 2024 git186404. Built with passion & code.</p>
+    </footer>
+  </body>
 </html>
